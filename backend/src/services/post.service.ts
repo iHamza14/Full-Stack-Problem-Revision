@@ -13,7 +13,7 @@ const authorSelect = {
   },
 };
 
-/* ───────── POST QUERIES ───────── */
+/*POST QUERIES*/
 
 /** Fetch paginated posts with author, like count, comment count, and tags */
 export async function listPosts(page: number = 1, limit: number = 10, search?: string) {
@@ -115,7 +115,7 @@ export async function createPost(
   return post;
 }
 
-/* ───────── LIKE QUERIES ───────── */
+/*LIKE QUERIES*/
 
 /** Toggle like on a post — returns new like status */
 export async function togglePostLike(userId: string, postId: string) {
@@ -151,7 +151,7 @@ export async function toggleCommentLike(userId: string, commentId: string) {
   }
 }
 
-/* ───────── COMMENT QUERIES ───────── */
+/*COMMENT QUERIES*/
 
 /** Add a comment to a post (optionally as a reply) */
 export async function addComment(

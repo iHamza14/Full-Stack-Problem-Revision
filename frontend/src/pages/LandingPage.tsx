@@ -50,7 +50,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ─── Stats Bar ─── */}
+      {/* Stats Bar */}
       <section className="landing-stats-bar">
         <div className="landing-stat">
           <div className="landing-stat-value">1000+</div>
@@ -66,7 +66,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ─── Features Section ─── */}
+      {/* Features Section*/}
       <section className="landing-features" id="features">
         <div className="section-header">
           <span className="section-eyebrow">Features</span>
@@ -113,7 +113,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ─── How It Works ─── */}
+      {/* How It Works */}
       <section className="landing-how-it-works">
         <div className="section-header">
           <span className="section-eyebrow">How It Works</span>
@@ -152,7 +152,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ─── CTA Section ─── */}
+      {/*CTA Section*/}
       <section className="landing-cta">
         <div className="cta-card">
           <h2 className="cta-title">
@@ -172,7 +172,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ─── Footer ─── */}
+      {/* Footer */}
       <footer className="landing-footer">
         <div className="footer-content">
           <span className="footer-brand">PracticeCF</span>

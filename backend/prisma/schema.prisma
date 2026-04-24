@@ -7,9 +7,8 @@ datasource db {
   provider = "postgresql"
 }
 
-//////////////////////////////////////////////////////
-// USER + PLATFORM HANDLE (FIXED DESIGN)
-//////////////////////////////////////////////////////
+// USER + PLATFORM HANDLE
+
 
 model User {
   id            String   @id @default(uuid())
@@ -49,9 +48,9 @@ model UserPlatformHandle {
   @@unique([platformId, handle])
 }
 
-//////////////////////////////////////////////////////
+
 // PROBLEM + CONTEST SYSTEM
-//////////////////////////////////////////////////////
+
 
 model Problem {
   id          String   @id @default(uuid())
@@ -95,9 +94,9 @@ model ContestProblem {
   @@id([contestId, problemId])
 }
 
-//////////////////////////////////////////////////////
+
 // TAG SYSTEM
-//////////////////////////////////////////////////////
+
 
 model Tag {
   id    Int    @id @default(autoincrement())
@@ -117,9 +116,9 @@ model ProblemTag {
   @@id([problemId, tagId])
 }
 
-//////////////////////////////////////////////////////
+
 // SOLVES + SUBMISSIONS
-//////////////////////////////////////////////////////
+
 
 model Solve {
   id        String   @id @default(uuid())
@@ -146,9 +145,9 @@ model Submission {
   problem Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
 }
 
-//////////////////////////////////////////////////////
+
 // BLOG / DISCUSSION SYSTEM
-//////////////////////////////////////////////////////
+
 
 model Post {
   id        String   @id @default(uuid())
@@ -183,9 +182,9 @@ model Comment {
   likes   CommentLike[]
 }
 
-//////////////////////////////////////////////////////
+
 // LIKES + POST TAGS
-//////////////////////////////////////////////////////
+
 
 model PostLike {
   userId String

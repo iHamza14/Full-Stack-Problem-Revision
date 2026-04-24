@@ -3,28 +3,10 @@
 
 # Codeforces Revision Tracker
 
-A full-stack web application that helps you **systematically revise Codeforces problems** using spaced repetition (1-day, 7-day, and 30-day lookbacks).
+A full-stack web application that helps you **systematically revise Codeforces problems** using spaced repetition (1-day, 7-day, and 30-day lookbacks) with blog and AI chatbot.
 
 **Tech Stack:** React, Express, PostgreSQL, Google OAuth
 **Goal:** Turn random problem solving into structured long-term retention.
-
----
-
-## Table of Contents
-
-* [About The Project](#about-the-project)
-
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -93,13 +75,13 @@ npm install npm@latest -g
 1. **Clone the repository**
 
 ```sh
-git clone https://github.com/Harsh-2005d/practiceCF.git
+git clone https://github.com/iHamza14/Full-Stack-Problem-Revision
 ```
 
 2. **Navigate into the project**
 
 ```sh
-cd practiceCF
+cd Full-Stack-Problem-Revisiom
 ```
 
 3. **Install dependencies**
@@ -155,8 +137,6 @@ This workflow encourages **systematic review instead of one-time problem solving
 * [ ] Revision streaks and analytics dashboard
 * [ ] Mobile-first UI improvements
 * [ ] Exportable revision sets
-
-See the [open issues](https://github.com/Harsh-2005d/practiceCF/issues) for a full list.
 
 ---
 
