@@ -3,13 +3,6 @@
 
 # Codeforces Revision Tracker
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 A full-stack web application that helps you **systematically revise Codeforces problems** using spaced repetition (1-day, 7-day, and 30-day lookbacks).
 
 **Tech Stack:** React, Express, PostgreSQL, Google OAuth
@@ -206,8 +199,6 @@ Distributed under the **project_license**. See `LICENSE.txt` for more informatio
 
 Hamza Anwar
 Email: anwarhamza1408@gmail.com
-
-Project Link: [https://github.com/Harsh-2005d/practiceCF](https://github.com/Harsh-2005d/practiceCF)
 
 ---
 
