@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2023",
+    
+  },
+  
+}
