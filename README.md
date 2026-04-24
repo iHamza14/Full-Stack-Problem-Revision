@@ -204,9 +204,8 @@ Distributed under the **project_license**. See `LICENSE.txt` for more informatio
 
 ## Contact
 
-Harsh Dahiya
-Twitter: [@twitter_handle](https://twitter.com/twitter_handle)
-Email: [email@email_client.com](mailto:email@email_client.com)
+Hamza Anwar
+Email: anwarhamza1408@gmail.com
 
 Project Link: [https://github.com/Harsh-2005d/practiceCF](https://github.com/Harsh-2005d/practiceCF)
 
@@ -217,23 +216,5 @@ Project Link: [https://github.com/Harsh-2005d/practiceCF](https://github.com/Har
 * Codeforces for the platform and API
 * Google OAuth for authentication
 * The open-source community
-
----
-
-## References
-
-[contributors-shield]: https://img.shields.io/github/contributors/Harsh-2005d/practiceCF.svg?style=for-the-badge
-[contributors-url]: https://github.com/Harsh-2005d/practiceCF/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Harsh-2005d/practiceCF.svg?style=for-the-badge
-[forks-url]: https://github.com/Harsh-2005d/practiceCF/network/members
-[stars-shield]: https://img.shields.io/github/stars/Harsh-2005d/practiceCF.svg?style=for-the-badge
-[stars-url]: https://github.com/Harsh-2005d/practiceCF/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Harsh-2005d/practiceCF.svg?style=for-the-badge
-[issues-url]: https://github.com/Harsh-2005d/practiceCF/issues
-[license-shield]: https://img.shields.io/github/license/Harsh-2005d/practiceCF.svg?style=for-the-badge
-[license-url]: https://github.com/Harsh-2005d/practiceCF/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/LinkedIn-black.svg?style=for-the-badge&logo=linkedin
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
 
 ---
