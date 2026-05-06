@@ -4,6 +4,8 @@
  */
 import { api } from "../axios";
 
+/* ─── Types ─── */
+
 /** Solve with joined Problem details from the new schema */
 export type Solve = {
   id: string;
@@ -34,14 +36,28 @@ export type StatsSummary = {
   streak: number;
 };
 
+export type PostPreview = {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: string;
+  author: {
+    id: string;
+    email: string;
+    handle?: string | null;
+  };
+  tags: { tag: { id: number; name: string } }[];
+  _count: { likes: number; comments: number };
+};
+
 export type PostListResponse = {
-  posts: any[];
+  posts: PostPreview[];
   total: number;
   page: number;
   totalPages: number;
 };
 
-/* Revision */
+/* ─── Revision ─── */
 
 /** Fetch spaced repetition revision solves */
 export async function getRevisionSolves(): Promise<ReviseResponse> {
@@ -50,7 +66,7 @@ export async function getRevisionSolves(): Promise<ReviseResponse> {
   return res.data;
 }
 
-/*Stats*/
+/* ─── Stats ─── */
 
 /** Fetch stats summary: total solves, today's solves, streak */
 export async function getStatsSummary(): Promise<StatsSummary> {
@@ -58,7 +74,7 @@ export async function getStatsSummary(): Promise<StatsSummary> {
   return res.data;
 }
 
-/*Posts (Blog/Discussion)*/
+/* ─── Posts (Blog/Discussion) ─── */
 
 /** Fetch paginated posts */
 export async function getPosts(
@@ -113,7 +129,7 @@ export async function likeComment(commentId: string) {
   return res.data;
 }
 
-/*AI Chat */
+/* ─── AI Chat ─── */
 
 /** Send a message to the AI chatbot */
 export async function sendChatMessage(

@@ -12,16 +12,24 @@ router.get("/revise", checkAuth, reviseController);
 router.get("/stats/histogram", checkAuth, histogramController);
 router.get("/refresh/user", checkAuth, refreshController);
 router.post("/sync", async (req, res) => {
-  console.log("recieved")
-  console.log(req.headers["cron-secret"] )
-  console.log(process.env.CRON_SECRET)
-  if (req.headers["cron-secret"] !== process.env.CRON_SECRET) {
+  const cronSecret = process.env.CRON_SECRET;
+  const incomingSecret = req.headers["cron-secret"];
+
+  if (!cronSecret) {
+    return res.status(500).json({ error: "CRON_SECRET is not configured" });
+  }
+
+  if (typeof incomingSecret !== "string" || incomingSecret !== cronSecret) {
     return res.status(401).end();
   }
-  console.log("verified")
-  await runDailyCfSyncJob();
-  console.log("done")
-  res.json({ success: true });
+
+  try {
+    await runDailyCfSyncJob();
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Manual sync failed", err);
+    res.status(500).json({ error: "Sync failed" });
+  }
 });
 
 router.get("/health", (_req, res) => {
