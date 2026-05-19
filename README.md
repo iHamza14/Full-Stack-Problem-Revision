@@ -3,10 +3,35 @@
 
 # Codeforces Revision Tracker
 
-A full-stack web application that helps you **systematically revise Codeforces problems** using spaced repetition (1-day, 7-day, and 30-day lookbacks) with blog and AI chatbot.
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+A full-stack web application that helps you **systematically revise Codeforces problems** using spaced repetition (1-day, 7-day, and 30-day lookbacks).
 
 **Tech Stack:** React, Express, PostgreSQL, Google OAuth
 **Goal:** Turn random problem solving into structured long-term retention.
+
+---
+
+## Table of Contents
+
+* [About The Project](#about-the-project)
+
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -75,13 +100,13 @@ npm install npm@latest -g
 1. **Clone the repository**
 
 ```sh
-git clone https://github.com/iHamza14/Full-Stack-Problem-Revision
+git clone https://github.com/iHamza14/Problem-Revision-Tracker
 ```
 
 2. **Navigate into the project**
 
 ```sh
-cd Full-Stack-Problem-Revisiom
+cd Problem-Revision-Tracker
 ```
 
 3. **Install dependencies**
@@ -176,11 +201,6 @@ Distributed under the **project_license**. See `LICENSE.txt` for more informatio
 ---
 
 ## Contact
-
-Hamza Anwar
-Email: anwarhamza1408@gmail.com
-
----
 
 ## Acknowledgments
 

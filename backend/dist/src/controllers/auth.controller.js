@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logoutController = exports.meController = exports.googleCallbackController = void 0;
 const oauth_services_1 = require("../services/oauth.services");
+const leetcode_1 = require("../services/leetcode");
 const googleCallbackController = async (req, res) => {
     try {
         const { code } = req.query;
@@ -24,9 +25,10 @@ const googleCallbackController = async (req, res) => {
 exports.googleCallbackController = googleCallbackController;
 /** GET /auth/me — returns user info with handle and live CF rating */
 const meController = async (req, res) => {
-    const { userId, email, handle } = req.user;
+    const { userId, email, handle, leetCodeHandle, handles } = req.user;
     // If user has a CF handle, fetch live rating from CF API
     let rating = null;
+    let leetCodeRating = null;
     if (handle) {
         try {
             const cfRes = await fetch(`https://codeforces.com/api/user.info?handles=${handle}`);
@@ -39,11 +41,26 @@ const meController = async (req, res) => {
             // CF API might be down, return null rating
         }
     }
+    if (leetCodeHandle) {
+        try {
+            const ranking = await (0, leetcode_1.getLeetCodeContestRanking)(leetCodeHandle);
+            leetCodeRating =
+                ranking && ranking.attendedContestsCount > 0
+                    ? Math.round(ranking.rating)
+                    : null;
+        }
+        catch {
+            // LeetCode API might be down, return null rating
+        }
+    }
     return res.json({
         userId,
         email,
         handle,
+        leetCodeHandle,
+        handles,
         rating,
+        leetCodeRating,
     });
 };
 exports.meController = meController;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setUserHandle = void 0;
+exports.setUserLeetCodeHandle = exports.setUserHandle = void 0;
 /**
  * Handle Service — links a Codeforces handle to a user
  * Updated for new schema: uses UserPlatformHandle + Platform
@@ -8,14 +8,26 @@ exports.setUserHandle = void 0;
 const prismac_1 = require("../prismac");
 const codeforces_1 = require("./codeforces");
 const cfSolveSync_service_1 = require("./cfSolveSync.service");
+const leetcode_1 = require("./leetcode");
+const lcSolveSync_service_1 = require("./lcSolveSync.service");
 // Codeforces platform ID constant (we ensure it exists)
 const CF_PLATFORM_NAME = "codeforces";
 const CF_PLATFORM_URL = "https://codeforces.com";
+const LEETCODE_PLATFORM_NAME = "leetcode";
+const LEETCODE_PLATFORM_URL = "https://leetcode.com";
 /** Ensure the Codeforces platform row exists, return its id */
 async function ensureCfPlatform() {
     const platform = await prismac_1.prisma.platform.upsert({
         where: { name: CF_PLATFORM_NAME },
         create: { name: CF_PLATFORM_NAME, url: CF_PLATFORM_URL },
+        update: {},
+    });
+    return platform.id;
+}
+async function ensureLeetCodePlatform() {
+    const platform = await prismac_1.prisma.platform.upsert({
+        where: { name: LEETCODE_PLATFORM_NAME },
+        create: { name: LEETCODE_PLATFORM_NAME, url: LEETCODE_PLATFORM_URL },
         update: {},
     });
     return platform.id;
@@ -60,4 +72,42 @@ const setUserHandle = async (userId, handle) => {
     return { handle: cfUser.handle };
 };
 exports.setUserHandle = setUserHandle;
+const setUserLeetCodeHandle = async (userId, username) => {
+    const currentUser = await prismac_1.prisma.user.findUnique({
+        where: { id: userId },
+        include: { handles: { include: { platform: true } } },
+    });
+    if (!currentUser) {
+        throw new Error("User not found");
+    }
+    const existingLeetCode = currentUser.handles.find((h) => h.platform.name === LEETCODE_PLATFORM_NAME);
+    if (existingLeetCode) {
+        throw new Error("LeetCode username already set and cannot be changed");
+    }
+    const lcUser = await (0, leetcode_1.getLeetCodeUserInfo)(username.trim());
+    const platformId = await ensureLeetCodePlatform();
+    const existing = await prismac_1.prisma.userPlatformHandle.findUnique({
+        where: {
+            platformId_handle: {
+                platformId,
+                handle: lcUser.username,
+            },
+        },
+    });
+    if (existing) {
+        throw new Error("LeetCode username already linked to another user");
+    }
+    await prismac_1.prisma.userPlatformHandle.create({
+        data: {
+            userId,
+            platformId,
+            handle: lcUser.username,
+        },
+    });
+    (0, lcSolveSync_service_1.syncLast30DaysLeetCodeSolves)(userId, lcUser.username, platformId).catch((err) => {
+        console.error(`Initial LeetCode sync failed for ${lcUser.username}:`, err);
+    });
+    return { handle: lcUser.username };
+};
+exports.setUserLeetCodeHandle = setUserLeetCodeHandle;
 //# sourceMappingURL=handle.service.js.map

@@ -4,10 +4,10 @@ exports.reviseController = void 0;
 const revise_service_1 = require("../services/revise.service");
 const reviseController = async (req, res) => {
     try {
-        const { userId, handle } = req.user;
-        if (!handle) {
+        const { userId, handle, leetCodeHandle } = req.user;
+        if (!handle && !leetCodeHandle) {
             return res.status(400).json({
-                error: "Codeforces handle not linked"
+                error: "No coding platform handle linked"
             });
         }
         const data = await (0, revise_service_1.getRevisionSolves)(userId);

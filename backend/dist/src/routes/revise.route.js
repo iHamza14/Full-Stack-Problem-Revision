@@ -9,6 +9,7 @@ const refresh_controller_1 = require("../controllers/refresh.controller");
 const dailySync_job_1 = require("../jobs/dailySync.job");
 const router = (0, express_1.Router)();
 router.post("/handle", auth_middleware_1.checkAuth, setHandler_controller_1.setHandleController);
+router.post("/handle/leetcode", auth_middleware_1.checkAuth, setHandler_controller_1.setLeetCodeHandleController);
 router.get("/revise", auth_middleware_1.checkAuth, revise_controller_1.reviseController);
 router.get("/stats/histogram", auth_middleware_1.checkAuth, stats_controller_1.histogramController);
 router.get("/refresh/user", auth_middleware_1.checkAuth, refresh_controller_1.refreshController);

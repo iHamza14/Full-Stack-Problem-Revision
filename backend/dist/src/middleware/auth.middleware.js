@@ -24,10 +24,16 @@ const checkAuth = async (req, res, next) => {
         }
         // Find the Codeforces handle if linked
         const cfHandle = dbUser.handles.find((h) => h.platform.name.toLowerCase() === "codeforces");
+        const leetCodeHandle = dbUser.handles.find((h) => h.platform.name.toLowerCase() === "leetcode");
         req.user = {
             userId: dbUser.id,
             email: dbUser.email,
             handle: cfHandle?.handle ?? null,
+            leetCodeHandle: leetCodeHandle?.handle ?? null,
+            handles: dbUser.handles.map((h) => ({
+                platform: h.platform.name,
+                handle: h.handle,
+            })),
         };
         next();
     }
