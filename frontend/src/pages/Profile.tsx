@@ -28,17 +28,17 @@ type HistogramResponse = {
 
 /* CF rank color mapping */
 function getCfRank(rating?: number | null) {
-  if (rating == null) return { title: "Unrated", color: "#6b6b80" };
-  if (rating >= 2900) return { title: "Legendary Grandmaster", color: "#ff0000" };
-  if (rating >= 2600) return { title: "International Grandmaster", color: "#ff0000" };
-  if (rating >= 2400) return { title: "Grandmaster", color: "#ff0000" };
-  if (rating >= 2300) return { title: "International Master", color: "#ff8c00" };
-  if (rating >= 2200) return { title: "Master", color: "#ff8c00" };
-  if (rating >= 1900) return { title: "Candidate Master", color: "#a0a" };
-  if (rating >= 1600) return { title: "Expert", color: "#0000ff" };
-  if (rating >= 1400) return { title: "Specialist", color: "#03a89e" };
-  if (rating >= 1200) return { title: "Pupil", color: "#008000" };
-  return { title: "Newbie", color: "#808080" };
+  if (rating == null) return { title: "Unrated", color: "#85827a" };
+  if (rating >= 2900) return { title: "Legendary Grandmaster", color: "#d22f2f" };
+  if (rating >= 2600) return { title: "International Grandmaster", color: "#d22f2f" };
+  if (rating >= 2400) return { title: "Grandmaster", color: "#d22f2f" };
+  if (rating >= 2300) return { title: "International Master", color: "#d97706" };
+  if (rating >= 2200) return { title: "Master", color: "#d97706" };
+  if (rating >= 1900) return { title: "Candidate Master", color: "#8b5a8c" };
+  if (rating >= 1600) return { title: "Expert", color: "#2f5f98" };
+  if (rating >= 1400) return { title: "Specialist", color: "#12857a" };
+  if (rating >= 1200) return { title: "Pupil", color: "#2f7d4f" };
+  return { title: "Newbie", color: "#85827a" };
 }
 
 export default function ProfilePage() {
@@ -177,14 +177,7 @@ export default function ProfilePage() {
                           rel="noopener noreferrer"
                           style={{ color: rankInfo.color }}
                         >
-                          {rankInfo.title === "Legendary Grandmaster" ? (
-                            <>
-                              <span style={{ color: "red" }}>{user.handle![0]}</span>
-                              {user.handle!.slice(1)}
-                            </>
-                          ) : (
-                            user.handle
-                          )}
+                          {user.handle}
                         </a>
                       </h1>
                       <p className="rank" style={{ color: rankInfo.color }}>
@@ -284,15 +277,15 @@ export default function ProfilePage() {
                 <XAxis dataKey="day" hide />
                 <YAxis
                   allowDecimals={false}
-                  tick={{ fill: "#6b6b80", fontSize: 12 }}
-                  axisLine={{ stroke: "rgba(255,255,255,0.06)" }}
+                  tick={{ fill: "#85827a", fontSize: 12 }}
+                  axisLine={{ stroke: "#e6e3dc" }}
                 />
                 <Tooltip
                   contentStyle={{
-                    background: "#1a1a2e",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    background: "#ffffff",
+                    border: "1px solid #d7d3ca",
                     borderRadius: "12px",
-                    color: "#f0f0f5",
+                    color: "#1f1f1d",
                   }}
                 />
                 <Bar
@@ -302,8 +295,8 @@ export default function ProfilePage() {
                 />
                 <defs>
                   <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#7c3aed" />
-                    <stop offset="100%" stopColor="#06b6d4" />
+                    <stop offset="0%" stopColor="#45a66b" />
+                    <stop offset="100%" stopColor="#2f7d4f" />
                   </linearGradient>
                 </defs>
               </BarChart>

@@ -17,7 +17,6 @@
 /* ─── Profile Card ─── */
 .profile-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 32px;
@@ -67,7 +66,7 @@
   font-size: 28px;
   font-weight: 800;
   margin-top: 4px;
-  letter-spacing: -0.5px;
+  letter-spacing: 0;
 }
 
 .handle a {
@@ -87,13 +86,13 @@
 }
 
 .leetcode-handle a {
-  color: #f5c84b;
+  color: var(--text-primary);
   text-decoration: none;
   transition: opacity var(--transition-fast);
 }
 
 .leetcode-rating {
-  color: #f5c84b;
+  color: var(--text-secondary);
   font-size: 14px;
   font-weight: 600;
   margin-top: 4px;
@@ -150,7 +149,7 @@
 
 .handle-input:focus {
   border-color: var(--accent-start);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 0 3px rgba(47, 125, 79, 0.12);
 }
 
 .handle-input::placeholder {
@@ -171,13 +170,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-base);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+  box-shadow: var(--shadow-sm);
 }
 
 .submit-btn:hover,
 .refresh-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+  box-shadow: var(--shadow-md);
 }
 
 .submit-btn:active,
@@ -196,7 +195,6 @@
 /* ─── Study Hours Widget ─── */
 .study-hours-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 28px;
@@ -233,7 +231,7 @@
 
 .hours-input:focus {
   border-color: var(--accent-start);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 0 3px rgba(47, 125, 79, 0.12);
 }
 
 .hours-label {
@@ -244,7 +242,6 @@
 /* ─── Graph Card ─── */
 .graph-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 28px;

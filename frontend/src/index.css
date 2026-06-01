@@ -3,34 +3,34 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Background layers */
-  --bg-base: #0a0a0f;
-  --bg-surface: #12121a;
-  --bg-elevated: #1a1a2e;
-  --bg-glass: rgba(255, 255, 255, 0.04);
-  --bg-glass-hover: rgba(255, 255, 255, 0.08);
+  --bg-base: #f7f7f4;
+  --bg-surface: #ffffff;
+  --bg-elevated: #eeeeea;
+  --bg-glass: #ffffff;
+  --bg-glass-hover: #f1f1ed;
 
-  /* Accent gradient */
-  --accent-start: #7c3aed;
-  --accent-end: #06b6d4;
-  --accent-gradient: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  /* Accent */
+  --accent-start: #2f7d4f;
+  --accent-end: #25663f;
+  --accent-gradient: #2f7d4f;
 
   /* Text */
-  --text-primary: #f0f0f5;
-  --text-secondary: #a0a0b8;
-  --text-muted: #6b6b80;
-  --text-accent: #a78bfa;
+  --text-primary: #1f1f1d;
+  --text-secondary: #55534d;
+  --text-muted: #85827a;
+  --text-accent: #2f7d4f;
 
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-default: rgba(255, 255, 255, 0.10);
-  --border-hover: rgba(255, 255, 255, 0.18);
+  --border-subtle: #e6e3dc;
+  --border-default: #d7d3ca;
+  --border-hover: #9eb8a8;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.15);
-  --shadow-glow-cyan: 0 0 30px rgba(6, 182, 212, 0.15);
+  --shadow-sm: 0 1px 3px rgba(31, 31, 29, 0.08);
+  --shadow-md: 0 8px 24px rgba(31, 31, 29, 0.08);
+  --shadow-lg: 0 16px 40px rgba(31, 31, 29, 0.12);
+  --shadow-glow: 0 10px 24px rgba(47, 125, 79, 0.12);
+  --shadow-glow-cyan: 0 10px 24px rgba(47, 125, 79, 0.12);
 
   /* Radius */
   --radius-sm: 8px;
@@ -52,7 +52,7 @@
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --color-info: #525252;
 }
 
 /* ─── Base Reset ─── */
@@ -102,7 +102,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent-end);
+  color: var(--text-primary);
 }
 
 /* ─── Scrollbar ─── */
@@ -115,19 +115,17 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: #d2cec5;
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #bdb8ae;
 }
 
 /* ─── Glass Card Utility ─── */
 .glass-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
@@ -141,10 +139,7 @@ a:hover {
 
 /* ─── Gradient Text ─── */
 .gradient-text {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 /* ─── Button Base ─── */
@@ -167,12 +162,12 @@ a:hover {
 .btn-primary {
   background: var(--accent-gradient);
   color: white;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary:active {
@@ -207,7 +202,7 @@ a:hover {
 
 .input:focus {
   border-color: var(--accent-start);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 0 3px rgba(47, 125, 79, 0.12);
 }
 
 .input::placeholder {
@@ -290,10 +285,10 @@ textarea.input {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 0 0 rgba(31, 31, 29, 0);
   }
   50% {
-    box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+    box-shadow: 0 0 0 rgba(31, 31, 29, 0);
   }
 }
 
@@ -342,7 +337,7 @@ textarea.input {
   background: linear-gradient(
     90deg,
     var(--bg-glass) 25%,
-    rgba(255, 255, 255, 0.08) 50%,
+    #ece9e1 50%,
     var(--bg-glass) 75%
   );
   background-size: 200% 100%;
@@ -364,8 +359,8 @@ textarea.input {
 }
 
 .badge-accent {
-  background: rgba(124, 58, 237, 0.15);
-  border-color: rgba(124, 58, 237, 0.3);
+  background: #edf7f0;
+  border-color: #c8e4d0;
   color: var(--text-accent);
 }
 

@@ -21,7 +21,7 @@
 .dashboard-header h1 {
   font-size: 1.75rem;
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: 0;
 }
 
 .dashboard-header p {
@@ -64,13 +64,12 @@
 .filter-button.active {
   background: var(--accent-gradient);
   color: white;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+  box-shadow: var(--shadow-glow);
 }
 
 /* ─── Questions Card ─── */
 .questions-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 28px;

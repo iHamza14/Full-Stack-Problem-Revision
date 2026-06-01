@@ -1,5 +1,5 @@
 /**
- * Navbar — Dark glassmorphism navbar with gradient logo
+ * Navbar — Primary app navigation
  * Shows different links based on auth state
  */
 import "../styles/navbar.css";

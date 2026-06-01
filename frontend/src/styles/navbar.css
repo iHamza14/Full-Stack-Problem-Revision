@@ -7,9 +7,9 @@
   right: 0;
   z-index: 1000;
   height: var(--navbar-height);
-  background: rgba(10, 10, 15, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -27,11 +27,8 @@
 .navbar-logo {
   font-size: 22px;
   font-weight: 800;
-  letter-spacing: -0.5px;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 0;
+  color: var(--text-primary);
   cursor: pointer;
   transition: opacity var(--transition-fast);
 }
@@ -94,12 +91,12 @@
 .nav-btn-login {
   background: var(--accent-gradient);
   color: white;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25);
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-btn-login:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+  box-shadow: var(--shadow-md);
 }
 
 .nav-btn-logout {
@@ -109,9 +106,9 @@
 }
 
 .nav-btn-logout:hover {
-  background: rgba(239, 68, 68, 0.15);
-  color: #f87171;
-  border-color: rgba(239, 68, 68, 0.3) !important;
+  background: #fff1f1;
+  color: var(--color-error);
+  border-color: #f3b5b5 !important;
 }
 
 /* ─── Mobile Menu ─── */
@@ -149,8 +146,8 @@
     top: var(--navbar-height);
     left: 0;
     right: 0;
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
     flex-direction: column;
     padding: 16px 24px;
     gap: 4px;
